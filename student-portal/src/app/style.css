@@ -1,0 +1,7 @@
+img.bg_image
+{
+    z-index:-5 ;
+    position: absolute; 
+    width: 1850px;
+    height: 1865px;
+}

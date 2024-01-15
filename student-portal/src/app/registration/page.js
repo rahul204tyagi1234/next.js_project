@@ -1,7 +1,9 @@
 "use client"
+// import {redirect} from 'next/navigation';
 import { useState } from "react";
 
 export default function registration() {
+
   const [firstname, setFirstName] = useState("");
   const [lastname, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -25,9 +27,12 @@ export default function registration() {
     });
     result = await result.json();
     if (result.success) {
-      alert("Add new user");
+      alert("Add new user ");
+      window.location.href = "login"
     }
+
   };
+
   return (
     <div class="card container p-4 col-md-4 ">
       <div class=" bg-white text-center">

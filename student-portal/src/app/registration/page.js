@@ -29,7 +29,7 @@ export default function registration() {
     }
   };
   return (
-    <div class="card container p-4 col-md-4">
+    <div class="card container p-4 col-md-4 ">
       <div class=" bg-white text-center">
         <h2>Registration</h2>
       </div>
@@ -44,7 +44,7 @@ export default function registration() {
               onChange={(e) => setFirstName(e.target.value)}
               class="form-control"
               placeholder="Enter the name"
-              required=""
+              required
             />
           </div>
           <div class="form-group">
@@ -112,21 +112,18 @@ export default function registration() {
 
           <div class="form-group">
             <label for="exampleFormControlSelect1">Address</label>
-            <input
-              type="text"
-              value={Address}
-              onChange={(e) => setAddress(e.target.value)}
-              class="form-control"
-              placeholder="Enter the address"
-              required=""
-            />{" "}
+            <textarea
+                class="form-control"
+                value={Address}
+                onChange={(e) => setAddress(e.target.value)}
+                name=""
+                cols="15"
+                rows="5"
+                required=""
+              ></textarea>{" "}
           </div>
           <div id="registerButton" class="text-center">
-          <button className="btn btn-primary btn-lg m-2 " onClick={addUser}>Add User</button>
-            {/* <a type="submit" class="btn btn-primary btn-lg m-2 ">
-              {" "}
-              Submit
-            </a> */}
+          <button className="btn btn-primary btn-lg m-2 " onClick={addUser}>Register User</button>
           </div>
         </form>
       </div>

@@ -1,7 +1,7 @@
-img.bg_image
+.bg_image
 {
-    z-index:-5 ;
-    position: absolute; 
-    width: 1850px;
-    height: 1865px;
+   background-image: url('https://wallpapercave.com/wp/wp2036000.jpg');
+}
+.link{
+    display: flex;
 }

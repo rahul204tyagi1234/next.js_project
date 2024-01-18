@@ -2,12 +2,12 @@ export default function result(){
     return(
         <div>
              <div id="result"></div>
-    <div class="card container">
-        <div class=" bg-white text-center">
+    <div className="card container">
+        <div className=" bg-white text-center">
             <h2>Result</h2>
         </div>
-        <div class="card-body">
-            <blockquote class="blockquote mb-0">
+        <div className="card-body">
+            <blockquote className="blockquote mb-0">
             </blockquote>
             <p>ParagraphParagraphs are the group of sentences combined together, about a certain topic. It is a very important form of writing as we write almost everything in paragraphs, be it an answer, essay, story, emails, etc. We can say that a well-structured paragraph is the essence of good writing. The purposes of the paragraph are to give information, to explain something, to tell a story, and to convince someone that our idea is right.
 
@@ -25,8 +25,8 @@ export default function result(){
                     <input type="text" class="form-control" placeholder="Enter the password" required=""/>
                 </div>  */}
 
-                <div class="text-center">
-                    <button type="button" class="btn btn-primary btn-lg m-2" onclick="print()">Print-Result</button>
+                <div className="text-center">
+                    <button type="button" className="btn btn-primary btn-lg m-2" onclick="print()">Print-Result</button>
                 </div>
         </div>
     </div>

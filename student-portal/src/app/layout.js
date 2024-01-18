@@ -15,38 +15,38 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="bg_image">
-        <nav class="navbar navbar-expand-lg fixed-top bg-primary">
-          <div class="container-fluid">
-            <a class="navbar-brand">
+        <nav className="navbar navbar-expand-lg fixed-top bg-primary">
+          <div className="container-fluid">
+            <a className="navbar-brand">
               <img
                 src="https://shivshankar9.github.io/Student-portal/images/logo.png"
                 alt=""
                 width="50"
                 height="50"
-                class="d-inline-block"
+                className="d-inline-block"
               />
               <b className="text-white">Student portal</b>
             </a>
-            <button class="navbar-toggler" type="button" id="navbarToggle">
-              <span class="navbar-toggler-icon"></span>
+            <button className="navbar-toggler" type="button" id="navbarToggle">
+              <span className="navbar-toggler-icon"></span>
             </button>
             <div
-              class="collapse navbar-collapse nav justify-content-end"
+              className="collapse navbar-collapse nav justify-content-end"
               id="navbarNav"
             >
-              <ul class="navbar-nav ml-auto" id="ul">
-                <li class="nav-item">
-                  <Link href="/login" class="nav-link active text-white">
-                    Login
-                  </Link>{" "}
-                </li>
-                <li class="nav-item">
-                  <Link href="/registration" class="nav-link active text-white">
+              <ul className="navbar-nav ml-auto" id="ul">
+              <li className="nav-item">
+                  <Link href="/registration" className="nav-link active text-white">
                     Registration
                   </Link>{" "}
                 </li>
-                <li class="nav-item">
-                  <Link href="/contact" class="nav-link active text-white">
+                <li className="nav-item">
+                  <Link href="/login" className="nav-link active text-white">
+                    Login
+                  </Link>{" "}
+                </li>
+                <li className="nav-item">
+                  <Link href="/contact" className="nav-link active text-white">
                     Contact
                   </Link>{" "}
                 </li>

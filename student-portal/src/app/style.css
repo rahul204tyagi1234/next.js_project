@@ -1,6 +1,7 @@
-.bg_image
+body.bg_image
 {
    background-image: url('https://wallpapercave.com/wp/wp2036000.jpg');
+   background-size: cover;
 }
 .link{
     display: flex;

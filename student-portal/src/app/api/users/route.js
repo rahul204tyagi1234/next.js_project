@@ -21,6 +21,11 @@ export async function POST(request){
     const payload= await request.json();
     await mongoose.connect("mongodb://localhost:27017");
     let users=new User(payload);
+    // if (password !== confirmPassword) {
+    //     ("your password and confirmpassword is not matching ");
+    //     success=false
+    //   }
     let result= await users.save();
+   
     return NextResponse.json({result,success:true})
 }

@@ -23,10 +23,10 @@ export default function profile(){
               </div>
               <div id="id" className="card-body">
 
-                 <h4>Maria Smantha</h4>
+                 <h4>Rahul Tyagi</h4>
                 <hr />
             
-                <b>Email :</b> Smantha <br></br>
+                <b>Email :</b> rahul@123gmail.com <br></br>
                 <b>Address :</b> jalalabad <br></br>
                 <b>Contact number:</b> 4785693214 
               </div>

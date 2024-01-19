@@ -34,70 +34,70 @@ export default function registration() {
   };
 
   return (
-    <div class="card container p-4 col-md-4 ">
-      <div class=" bg-white text-center">
+    <div className="card container p-4 col-md-4 ">
+      <div className=" bg-white text-center">
         <h2>Registration</h2>
       </div>
-      <div class="card-body">
-        <blockquote class="blockquote mb-0"></blockquote>
+      <div className="card-body">
+        <blockquote className="blockquote mb-0"></blockquote>
         <form>
-          <div class="form-group">
-            <label for="exampleFormControlSelect1">Name</label>
+          <div className="form-group">
+            <label htmlFor="exampleFormControlSelect1">Name</label>
             <input
               type="text"
               value={firstname}
               onChange={(e) => setFirstName(e.target.value)}
-              class="form-control"
+              className="form-control"
               placeholder="Enter the name"
               required
             />
           </div>
-          <div class="form-group">
-            <label for="exampleFormControlSelect1">Last name</label>
+          <div className="form-group">
+            <label htmlFor="exampleFormControlSelect1">Last name</label>
             <input
               type="text"
               value={lastname}
               onChange={(e) => setLastName(e.target.value)}
-              class="form-control"
+              className="form-control"
               placeholder="Enter the father name"
               required=""
             />
           </div>
-          <div class="form-group">
-            <label for="exampleFormControlSelect1">Email</label>
+          <div className="form-group">
+            <label htmlFor="exampleFormControlSelect1">Email</label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              class="form-control"
+              className="form-control"
               placeholder="name@gmail.com"
               required=""
             />
           </div>
-          <div class="form-group">
-            <label for="exampleFormControlSelect1">Password</label>
+          <div className="form-group">
+            <label htmlFor="exampleFormControlSelect1">Password</label>
             <input
               type="text"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              class="form-control"
+              className="form-control"
               placeholder="487845@#$561"
               required=""
             />
           </div>
-          <div class="form-group">
-            <label for="exampleFormControlSelect1">Confirm Password</label>
+          <div className="form-group">
+            <label htmlFor="exampleFormControlSelect1">Confirm Password</label>
             <input
               type="password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              class="form-control"
+              className="form-control"
               placeholder="487845@#$561"
               required=""
             />
           </div>
-          <div class="form-group">
-            <label for="exampleFormControlSelect1">Gender</label>
+          <div className="form-group">
+            <label htmlFor="exampleFormControlSelect1">Gender</label>
             &nbsp;&nbsp;&nbsp;&nbsp;
             <input
               type="radio"
@@ -115,10 +115,10 @@ export default function registration() {
             Female
           </div>
 
-          <div class="form-group">
-            <label for="exampleFormControlSelect1">Address</label>
+          <div className="form-group">
+            <label htmlFor="exampleFormControlSelect1">Address</label>
             <textarea
-                class="form-control"
+                className="form-control"
                 value={Address}
                 onChange={(e) => setAddress(e.target.value)}
                 name=""
@@ -127,7 +127,7 @@ export default function registration() {
                 required=""
               ></textarea>{" "}
           </div>
-          <div id="registerButton" class="text-center">
+          <div id="registerButton" className="text-center">
           <button className="btn btn-primary btn-lg m-2 " onClick={addUser}>Register User</button>
           </div>
         </form>

@@ -2,21 +2,47 @@
 
 import { useEffect,useState } from "react";
 
+
+
 export default function login() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
   useEffect(()=>{
-    showUser();
+    getUser();
 },[]);
 
-  const showUser= async ()=>{
-    let userList = await fetch("http://localhost:3000/api/users");
-    userList = await userList.json();
-    let result= userList.result
-    console.log("findResult======",result);
-    let name=result.firstname;
-    console.log("Your name====",name);
+  const getUser= async ()=>{
+    let data = await fetch("http://localhost:3000/api/users");
+    data = await data.json();
+    console.log("===============");
+    let user= data.result
+    user.map((item)=>{
+    console.log("----------",item.email);
+    //   if (item.email===email && item.password === password){
+    //     alert("Login successfully");
+    //     window.location.href = "dashboard"
+  
+    // }else{
+    //     alert("Your data is not matching")
+  
+    // }
+    }
+      
+    )
+  
+    // console.log("===\\\\=====/////",user);
+    // console.log("========",data.result);
+    // if(data.success){
+    //   return data.result;
+    // }else{
+    //   return {success:false}
+    // }
+
+    // let result= userList.result
+    // console.log("findResult======",result);
+    // let name=result.firstname;
+    // console.log("Your name====",name);
 
     
     // console.log(result.email);
@@ -46,7 +72,7 @@ export default function login() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="form-control"
-              placeholder="name@gmail.com"
+              // placeholder="name@gmail.com"
               required=""
             />{" "}
           </div>
@@ -57,12 +83,12 @@ export default function login() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="form-control"
-              placeholder="487845@#$561"
+              // placeholder="487845@#$561"
               required=""
             />
           </div>
           <div className="text-center">
-          <button className="btn btn-primary btn-lg m-2 " >Submit</button>
+          <button className="btn btn-primary btn-lg m-2 "  >Submit</button>
 
           </div>
         </form>

@@ -25,11 +25,19 @@ export default function registration() {
         Address,
       }),
     });
-    result = await result.json();
-    if (result.success) {
-      alert("Add new user ");
+    if (password===confirmPassword) {
+      alert("Registration successfully")
+      result = await result.json();
       window.location.href = "login"
+    } else {
+      alert("Your password is not matching")
     }
+    // result = await result.json();
+    // if (result.success) {
+    //   alert("Add new user ");
+    //   window.location.href = "login"
+
+    // }
 
   };
 
@@ -48,7 +56,7 @@ export default function registration() {
               value={firstname}
               onChange={(e) => setFirstName(e.target.value)}
               className="form-control"
-              placeholder="Enter the name"
+              // placeholder="Enter the name"
               required
             />
           </div>
@@ -59,7 +67,6 @@ export default function registration() {
               value={lastname}
               onChange={(e) => setLastName(e.target.value)}
               className="form-control"
-              placeholder="Enter the father name"
               required=""
             />
           </div>
@@ -70,7 +77,7 @@ export default function registration() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="form-control"
-              placeholder="name@gmail.com"
+              // placeholder="name@gmail.com"
               required=""
             />
           </div>
@@ -81,7 +88,7 @@ export default function registration() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="form-control"
-              placeholder="487845@#$561"
+              // placeholder="487845@#$561"
               required=""
             />
           </div>
@@ -92,7 +99,7 @@ export default function registration() {
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               className="form-control"
-              placeholder="487845@#$561"
+              // placeholder="487845@#$561"
               required=""
             />
           </div>

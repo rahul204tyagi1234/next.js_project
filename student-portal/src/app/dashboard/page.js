@@ -1,3 +1,7 @@
+import Result from "./result/page";
+import Profile from "./profile/page";
+import Payment from "./payment/page";
+import Courses from "./courses/page";
 import Link from "next/link";
 
 export default function dashBoard() {
@@ -10,13 +14,13 @@ export default function dashBoard() {
              <div id="show">
              <ul className="list-group list-group-flush">
               <div id="show">
-              <li className="list-group-item active"> 
-              <Link href="/dashboard/courses" className="nav-link active text-white">
+              <li className="list-group-item "> 
+              <Link href="/dashboard/courses" className="nav-link active ">
                    Courses</Link>
              
                 {/* <a class="nav-link " href="javascript:void(0)" onclick="showCourses('/courses.html')">Courses</a> */}
               </li>
-              <li className="list-group-item "> 
+              <li className="list-group-item active "> 
               <Link href="/dashboard/profile" className="nav-link active ">
                    Profile</Link>              </li>
               <li className="list-group-item"> 
@@ -37,7 +41,11 @@ export default function dashBoard() {
               <div className="card-header text-center " ><b>Dasboard</b></div>
               <ul className="list-group list-group-flush">
                 <br></br>
-              <div id="profile"></div>
+              {/* <div><Payment/></div>
+              <div><Result/></div>
+              <div><Courses/></div> */}
+              <div><Profile/></div>
+              
               <br></br>
               </ul>
             </div>

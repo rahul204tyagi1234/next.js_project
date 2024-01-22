@@ -50,7 +50,7 @@ export default function registration() {
         <blockquote className="blockquote mb-0"></blockquote>
         <form>
           <div className="form-group">
-            <label htmlFor="exampleFormControlSelect1">Name</label>
+            <label htmlFor="exampleFormControlSelect1">First Name</label>
             <input
               type="text"
               value={firstname}
@@ -108,15 +108,15 @@ export default function registration() {
             &nbsp;&nbsp;&nbsp;&nbsp;
             <input
               type="radio"
-              value="Male"
-              onChange={(e) => setGender(e.target.value)}
+              value={Gender}
+              onClick={() => setGender('Male')}
               name="gender"
             />{" "}
             Male &nbsp;&nbsp;&nbsp;&nbsp;
             <input
               type="radio"
-              value="Female"
-              onChange={(e) => setGender(e.target.value)}
+              value={Gender}
+              onClick={() => setGender('Female')}
               name="gender"
             />{" "}
             Female

@@ -1,5 +1,10 @@
+import Header from "../header/page"
+import Footer from "../footer/page"
+
 export default function about(){
     return(
+      <div>
+        <Header/>
         <div className="card container p-2 col-md-4">
         <div className="bg-white text-center">
           <h2>Contact Us</h2>
@@ -44,6 +49,8 @@ export default function about(){
             </div>
           </form>
         </div>
+      </div>
+      <Footer/>
       </div>
     )
 }

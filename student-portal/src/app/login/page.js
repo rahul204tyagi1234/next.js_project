@@ -1,6 +1,8 @@
 "use client"
 
 import { useEffect,useState } from "react";
+import Header from "../header/page";
+import Footer from "../footer/page";
 
 let getAllUserData =[];
 const getUser= async ()=>{
@@ -75,6 +77,8 @@ const getUser= async ()=>{
   
 
   return (
+    <div>
+      <Header />
     <div className="card container p-4 col-md-4">
       <div className=" bg-white text-center">
         <h2>Login</h2>
@@ -110,6 +114,8 @@ const getUser= async ()=>{
           </div>
         </form>
       </div>
+    </div>
+    <Footer/>
     </div>
   );
 }

@@ -1,6 +1,8 @@
 "use client"
 // import {redirect} from 'next/navigation';
 import { useState } from "react";
+import Header from "../header/page";
+import Footer from "../footer/page";
 
 export default function registration() {
 
@@ -42,6 +44,8 @@ export default function registration() {
   };
 
   return (
+    <div>
+      <Header/>
     <div className="card container p-4 col-md-4 ">
       <div className=" bg-white text-center">
         <h2>Registration</h2>
@@ -67,7 +71,7 @@ export default function registration() {
               value={lastname}
               onChange={(e) => setLastName(e.target.value)}
               className="form-control"
-              required=""
+              required
             />
           </div>
           <div className="form-group">
@@ -78,29 +82,29 @@ export default function registration() {
               onChange={(e) => setEmail(e.target.value)}
               className="form-control"
               // placeholder="name@gmail.com"
-              required=""
+              required
             />
           </div>
           <div className="form-group">
-            <label htmlFor="exampleFormControlSelect1">Password</label>
+            <label htmlFor="exampleFormControlSelect1">Password  (5 number minimum):</label>
             <input
-              type="text"
+              type="number"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="form-control"
               // placeholder="487845@#$561"
-              required=""
+              minlength="4" required
             />
           </div>
           <div className="form-group">
-            <label htmlFor="exampleFormControlSelect1">Confirm Password</label>
+            <label htmlFor="exampleFormControlSelect1">Confirm Password  (5 number minimum):</label>
             <input
               type="password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               className="form-control"
               // placeholder="487845@#$561"
-              required=""
+              minlength="4" required
             />
           </div>
           <div className="form-group">
@@ -111,14 +115,16 @@ export default function registration() {
               value={Gender}
               onClick={() => setGender('Male')}
               name="gender"
-            />{" "}
+              required
+            />
             Male &nbsp;&nbsp;&nbsp;&nbsp;
             <input
               type="radio"
               value={Gender}
               onClick={() => setGender('Female')}
               name="gender"
-            />{" "}
+              required
+            />
             Female
           </div>
 
@@ -128,17 +134,19 @@ export default function registration() {
                 className="form-control"
                 value={Address}
                 onChange={(e) => setAddress(e.target.value)}
-                name=""
-                cols="15"
-                rows="5"
-                required=""
-              ></textarea>{" "}
+                // name=""
+                // cols="15"
+                // rows="5"
+                required
+              ></textarea>
           </div>
-          <div id="registerButton" className="text-center">
+          <div className="text-center">
           <button className="btn btn-primary btn-lg m-2 " onClick={addUser}>Register User</button>
           </div>
         </form>
       </div>
+    </div>
+    <Footer/>
     </div>
   );
 }

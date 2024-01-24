@@ -14,46 +14,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="bg_image">
-        <nav className="navbar navbar-expand-lg fixed-top bg-primary">
-          <div className="container-fluid">
-            <a className="navbar-brand">
-              <img
-                src="https://shivshankar9.github.io/Student-portal/images/logo.png"
-                alt=""
-                width="50"
-                height="50"
-                className="d-inline-block"
-              />
-              <b className="text-white">Student portal</b>
-            </a>
-            <button className="navbar-toggler" type="button" id="navbarToggle">
-              <span className="navbar-toggler-icon"></span>
-            </button>
-            <div
-              className="collapse navbar-collapse nav justify-content-end"
-              id="navbarNav"
-            >
-              <ul className="navbar-nav ml-auto" id="ul">
-              <li className="nav-item">
-                  <Link href="/registration" className="nav-link active text-white">
-                    Registration
-                  </Link>{" "}
-                </li>
-                <li className="nav-item">
-                  <Link href="/login" className="nav-link active text-white">
-                    Login
-                  </Link>{" "}
-                </li>
-                <li className="nav-item">
-                  <Link href="/contact" className="nav-link active text-white">
-                    Contact
-                  </Link>{" "}
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
+      <body className="bg-primary bg-opacity-10">
         <br></br>
         <br></br>
         <br></br>

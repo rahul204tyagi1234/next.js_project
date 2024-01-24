@@ -2,60 +2,77 @@
 
 import { useEffect,useState } from "react";
 
+let getAllUserData =[];
+const getUser= async ()=>{
+  let data = await fetch("http://localhost:3000/api/users");
+  data = await data.json();
+  console.log("===============");
+  let user= data.result;
+  user.map((item)=>{
+    getAllUserData=item
+  console.log("----------",getAllUserData);
+})
 
 
-export default function login() {
+// console.log("=========",newPassword);
+// console.log("=========",{newEmail});
+}
+
+// const loginUser=()=> {
+//   console.log("your new data",getAllUserData);
+//   var newEmail= getAllUserData.email;
+//   var newPassword=getAllUserData.password;
+//   if (newEmail===email && newPassword===password) {
+//     alert("your data")
+//     console.log("=======",newEmail);
+//     console.log("=======",newPassword);
+//     alert("Login successfully");
+//     window.location.href = "dashboard"
+//   } else {
+//     alert("Your data is not matching")
+//   }
+// }
+
+
+
+
+
+ export default function login() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-
   useEffect(()=>{
     getUser();
-},[]);
+    // loginUser();
+  },[]);
 
-  const getUser= async ()=>{
-    let data = await fetch("http://localhost:3000/api/users");
-    data = await data.json();
-    console.log("===============");
-    let user= data.result
-    user.map((item)=>{
-    console.log("----------",item.email);
-    //   if (item.email===email && item.password === password){
-    //     alert("Login successfully");
-    //     window.location.href = "dashboard"
-  
-    // }else{
-    //     alert("Your data is not matching")
-  
-    // }
+
+
+  const loginUser=()=> {
+
+    console.log("your new data",getAllUserData);
+    var newemail= getAllUserData.email;
+    var newpassword=getAllUserData.password;
+    console.log("your old email",newemail);
+    console.log("your old email",newpassword);
+    console.log("your new email",email);
+    console.log("your new password",password);
+    if (newemail===email || newpassword===password) {
+      alert("Login successfully");
+       window.location.href = "./dashboard"
+
+    } else {
+      alert("Your data is not matching")
     }
-      
-    )
-  
-    // console.log("===\\\\=====/////",user);
-    // console.log("========",data.result);
-    // if(data.success){
-    //   return data.result;
-    // }else{
-    //   return {success:false}
-    // }
-
-    // let result= userList.result
-    // console.log("findResult======",result);
-    // let name=result.firstname;
-    // console.log("Your name====",name);
-
-    
-    // console.log(result.email);
-    // console.log("==========", email);
-    // if (result.email===email && result.password=== password){
-    //     alert("Login successfully");
-    //     window.location.href = "dashboard"
-
-    // }else{
-    //     alert("Your data is not matching")
-
-    // }
   }
+ 
+
+  // if (item.email===email && item.password===password) {
+  //   alert("Login successfully");
+  //   window.location.href = "dashboard"
+  // } else {
+  //   alert("Your data is not matching")
+  // }
+  
 
   return (
     <div className="card container p-4 col-md-4">
@@ -88,7 +105,7 @@ export default function login() {
             />
           </div>
           <div className="text-center">
-          <button className="btn btn-primary btn-lg m-2 "  >Submit</button>
+          <button className="btn btn-primary btn-lg m-2 "onClick={loginUser}>Submit</button>
 
           </div>
         </form>

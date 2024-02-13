@@ -17,7 +17,7 @@ export default function about(){
               <input
                 type="text"
                 className="form-control"
-                placeholder="Enter the name"
+                // placeholder="Enter the name"
                 required=""
               />
             </div>
@@ -26,7 +26,7 @@ export default function about(){
               <input
                 type="text"
                 className="form-control"
-                placeholder="name@gmail.com"
+                // placeholder="name@gmail.com"
                 required=""
               />
             </div>

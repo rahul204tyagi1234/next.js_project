@@ -1,15 +1,39 @@
-import  User  from "../lib/model/connect";
+"use client";
+import { useState } from "react";
+import Link from "next/link";
 import Result from "./result/page";
 import Profile from "./profile/page";
 import Payment from "./payment/page";
 import Courses from "./courses/page";
 import Footer from "../footer/page";
-import Link from "next/link";
+// import { useState } from "react";
 
-export default function dashBoard() {
+export default function DashBoard() {
+
+  const logOut=()=>{
+    confirm("Are you sure")
+    window.location.href = "/";
+  }
+  const [selectedOption,setSelectedOption] = useState("Courses");
+
+  const renderPage = () => {
+    switch (selectedOption) {
+      case "Courses":
+        return <Courses />;
+      case "Profile":
+        return <Profile />;
+      case "Payment":
+        return <Payment />;
+      case "Result":
+        return <Result />;
+      default:
+        return null;
+    }
+  };
+
   return (
     <div>
-      <nav className="navbar navbar-expand-lg fixed-top bg-primary bg-opacity-50">
+          <nav className="navbar navbar-expand-lg fixed-top bg-primary bg-opacity-50">
         <div className="container-fluid">
           <a className="navbar-brand">
             <img
@@ -29,7 +53,7 @@ export default function dashBoard() {
             id="navbarNav"
           >
             <ul className="navbar-nav ml-auto" id="ul">
-              <a className="nav-link  " type="button">
+              <a className="nav-link  " onClick={logOut} type="button">
                 {" "}
                 <b>Logout</b>
               </a>
@@ -57,76 +81,85 @@ export default function dashBoard() {
         <div className="row">
           <div className="col-md-3">
             <div className="card">
-              <div className="card-header text-center">
+            <div className="card-header text-center bg-primary bg-opacity-50">
                 <b>Options</b>
               </div>
-              <div id="show">
-                <ul className="list-group list-group-flush">
-                  <div id="show">
-                    <li className="list-group-item ">
-                      <Link
-                        href="/dashboard/courses"
-                        className="nav-link active "
-                      >
-                        Courses
-                      </Link>
-
-                      {/* <a class="nav-link " href="javascript:void(0)" onclick="showCourses('/courses.html')">Courses</a> */}
-                    </li>
-                    <li className="list-group-item active ">
-                      <Link
-                        href="/dashboard/profile"
-                        className="nav-link active "
-                      >
-                        Profile
-                      </Link>{" "}
-                    </li>
-                    <li className="list-group-item">
-                      <Link
-                        href="/dashboard/payment"
-                        className="nav-link active"
-                      >
-                        Payment
-                      </Link>{" "}
-                    </li>
-                    <li className="list-group-item">
-                      <Link
-                        href="/dashboard/result"
-                        className="nav-link active "
-                      >
-                        Result
-                      </Link>{" "}
-                    </li>
-                  </div>
-                </ul>
-              </div>
+              <ul className="list-group list-group-flush">
+                <li
+                  className={`list-group-item ${
+                    selectedOption === "Courses" ? "active" : ""
+                  }`}
+                >
+                  <Link
+                    href="/dashboard"
+                    as="/dashboard"
+                    className="nav-link active"
+                    onClick={() => setSelectedOption("Courses")}
+                  >
+                    Courses
+                  </Link>
+                </li>
+                <li
+                  className={`list-group-item ${
+                    selectedOption === "Profile" ? "active" : ""
+                  }`}
+                >
+                  <Link
+                    href="/dashboard"
+                    as="/dashboard"
+                    className="nav-link active"
+                    onClick={() => setSelectedOption("Profile")}
+                  >
+                    Profile
+                  </Link>
+                </li>
+                <li
+                  className={`list-group-item ${
+                    selectedOption === "Payment" ? "active" : ""
+                  }`}
+                >
+                  <Link
+                    href="/dashboard"
+                    as="/dashboard"
+                    className="nav-link active"
+                    onClick={() => setSelectedOption("Payment")}
+                  >
+                    Payment
+                  </Link>
+                </li>
+                <li
+                  className={`list-group-item ${
+                    selectedOption === "Result" ? "active" : ""
+                  }`}
+                >
+                  <Link
+                    href="/dashboard"
+                    as="/dashboard"
+                    className="nav-link active"
+                    onClick={() => setSelectedOption("Result")}
+                  >
+                    Result
+                  </Link>
+                </li>
+              </ul>
             </div>
           </div>
 
           <div className="col-md-9">
             <div className="card">
-              <div className="card-header text-center ">
-                <b>Dasboard</b>
+              <div className="card-header text-center bg-primary bg-opacity-50 ">
+                <b>Dashboard</b>
               </div>
               <ul className="list-group list-group-flush">
                 <br></br>
-                {/* <div><Payment/></div>
-              <div><Result/></div>
-              <div><Courses/></div> */}
-                <div>
-                  <Profile />
-                  {/* <Payment/>
-                  <Courses/>
-                  <Result/> */}
-                </div>
-
+                <div>{renderPage()}</div>
                 <br></br>
               </ul>
             </div>
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

@@ -11,3 +11,10 @@ const userModel=new mongoose.Schema({
 
 })
 export const User=mongoose.models.userDetails || mongoose.model("userDetails",userModel)
+
+const userchat=new mongoose.Schema({
+    name:String,
+    email:String,
+    message:String
+})
+export const UserChat=mongoose.models.userChating || mongoose.model("userChating",userchat)

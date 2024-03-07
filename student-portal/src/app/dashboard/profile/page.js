@@ -1,4 +1,6 @@
+"use client"
 
+import { useEffect } from "react";
 
 let getAllUserData =[];
 const getUser= async ()=>{
@@ -7,23 +9,20 @@ const getUser= async ()=>{
   let user= data.result;
   user.map((item)=>{
     getAllUserData=item
-  // console.log("----------",getAllUserData);
 })
 }
 
-export default async function  profile(){
-  let result= await getUser();
+
+export default function  profile(){
   let firstname=getAllUserData.firstname
   let lastname=getAllUserData.lastname
   let email=getAllUserData.email
   let Address=getAllUserData.Address
   let password=getAllUserData.password
-    console.log(result);
 
-    // useEffect(()=>{
-    //   getUser();
-    //   // loginUser();
-    // },[]);
+    useEffect(()=>{
+      getUser();
+    },[]);
 
     return(
         <div>
@@ -48,12 +47,6 @@ export default async function  profile(){
                 </svg>
               </div>
               <div id="id" className="card-body">
-                {/* {
-                  result.map((item)=>(
-                    <div><h4> Name :-{item.firstname}&nbsp;&nbsp;{item.lastname}</h4></div>
-                  ))
-                } */}
-
                  <h4>{firstname}&nbsp;&nbsp;{lastname}</h4>
                 <hr />
             

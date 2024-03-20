@@ -15,7 +15,7 @@ export default async function Chating() {
         <b>-: Chating Users List :-</b>
       </h2>
       <br></br>
-      <table class="table table-hover  table-info container-sm">
+      <table className="table table-hover  table-info container-sm">
         <thead>
           <tr>
             <th>Id</th>

@@ -1,9 +1,18 @@
+
 import { Inter } from "next/font/google";
 
 // import './globals.css'
 import "./style.css";
 import "bootstrap/dist/css/bootstrap.css";
+// import "bootstrap/dist/js/bootstrap.bundle.min.js";
+// import 'bootstrap/dist/css/bootstrap.cs'
+// import Script from "next/script";
+// import ImportBsJS from "@/components/importBsJS";
 import Link from "next/link";
+import Button from "./button/page";
+import Test from "./chat/page";
+import BootstrapClient from "./component/BootstrapClient";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -12,55 +21,113 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+
   return (
     <html lang="en">
-      <body className="bg_image">
-        <nav className="navbar navbar-expand-lg fixed-top bg-primary">
-          <div className="container-fluid">
-            <a className="navbar-brand">
-              <img
-                src="https://shivshankar9.github.io/Student-portal/images/logo.png"
-                alt=""
-                width="50"
-                height="50"
-                className="d-inline-block"
-              />
-              <b className="text-white">Student portal</b>
-            </a>
-            <button className="navbar-toggler" type="button" id="navbarToggle">
-              <span className="navbar-toggler-icon"></span>
-            </button>
-            <div
-              className="collapse navbar-collapse nav justify-content-end"
-              id="navbarNav"
-            >
-              <ul className="navbar-nav ml-auto" id="ul">
-              <li className="nav-item">
-                  <Link href="/registration" className="nav-link active text-white">
-                    Registration
-                  </Link>{" "}
-                </li>
-                <li className="nav-item">
-                  <Link href="/login" className="nav-link active text-white">
-                    Login
-                  </Link>{" "}
-                </li>
-                <li className="nav-item">
-                  <Link href="/contact" className="nav-link active text-white">
-                    Contact
-                  </Link>{" "}
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
+      <head>
+        {/* <script
+          src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+          integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+          crossOrigin="anonymous"
+        ></script>
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+          integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+          crossOrigin="anonymous"
+        ></script> */}
+      </head>
+      <body className="bg-white ">
+        {/* <h1>Pradip</h1> */}
         <br></br>
         <br></br>
         <br></br>
         <br></br>
         <br></br>
+
         {/*------------ end navbar area -------------*/}
         {children}
+        <BootstrapClient />
+        <Button/>
+
+        {/* <div className="container-fluid">
+          <div className="row">
+            <div className="col-sm-6 col-md-6 col-lg-6">
+              <div class="d-grid gap-2 d-md-flex scroll-bottom">
+              <button
+                  type="button"
+                  class="btn btn-secondary dropdown-toggle "
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Scroll
+                </button>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="#">
+                      Scroll Up
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">
+                      Scroll Between
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">
+                      Scroll Down
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <Test/>
+            <div className="col-sm-6 col-md-6 col-lg-6">
+              <div class="btn-group dropup  chat-bottom">
+              <button class="btn btn-dark rounded-circle" onClick={loadChat} type="button">
+                  Chat
+                </button>
+              </div>
+            </div>
+          </div>
+        </div> */}
+
+        {/* <div class="d-grid gap-2 d-md-flex chat-bottom">
+          <button class="btn btn-dark rounded-circle" type="button">
+            Chat
+          </button>
+        </div>
+
+        <div class="btn-group dropup ">
+          <button
+            type="button"
+            class="btn btn-secondary dropdown-toggle rounded-circle"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Dropup
+          </button>
+          <ul class="dropdown-menu">
+            <li>
+              <a class="dropdown-item" href="#" >
+                Scroll Up
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">
+              Scroll Between
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="#">
+              Scroll Down
+              </a>
+            </li>
+          </ul>
+        </div> */}
+
+        <br></br>
+        <br></br>
+        <br></br>
       </body>
     </html>
   );

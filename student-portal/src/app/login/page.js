@@ -1,6 +1,8 @@
 "use client"
 
 import { useEffect,useState } from "react";
+import Header from "../header/page";
+import Footer from "../footer/page";
 
 let getAllUserData =[];
 const getUser= async ()=>{
@@ -12,10 +14,6 @@ const getUser= async ()=>{
     getAllUserData=item
   console.log("----------",getAllUserData);
 })
-
-
-// console.log("=========",newPassword);
-// console.log("=========",{newEmail});
 }
 
 // const loginUser=()=> {
@@ -75,13 +73,16 @@ const getUser= async ()=>{
   
 
   return (
+    <div>
+      <Header />
     <div className="card container p-4 col-md-4">
       <div className=" bg-white text-center">
         <h2>Login</h2>
+        <p>Login into  your account</p>
       </div>
       <div className="card-body">
         <blockquote className="blockquote mb-0"></blockquote>
-        <form>
+        <form onSubmit={(event) => event.preventDefault()}>
           <div className="form-group">
             <label htmlFor="exampleFormControlSelect1">Email</label>
             <input
@@ -110,6 +111,8 @@ const getUser= async ()=>{
           </div>
         </form>
       </div>
+    </div>
+    <Footer/>
     </div>
   );
 }

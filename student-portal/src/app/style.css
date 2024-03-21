@@ -6,3 +6,118 @@ body.bg_image
 .link{
     display: flex;
 }
+.cd{
+    width: 18rem;
+    /* text-align: center; */
+    margin: 20px;
+    margin-left: 100px;
+
+}
+.h{
+    text-align: center;
+    font-family: "Nunito Sans",sans-serif;
+    /* color: rgb(137, 154, 154); */
+}
+.getStarted {
+    font-size: 19px!important;
+    font-weight: 600;
+    margin: 0 0 1rem;
+    line-height: 1.2105em;
+    letter-spacing: 0;
+    text-align: center;
+    /* color:blue; */
+    font-family: "Nunito Sans",sans-serif;
+}
+.getStarte {
+    font-size: 19px!important;
+    font-weight: 600;
+    margin: 0 0 1rem;
+    line-height: 1.2105em;
+    letter-spacing: 0;
+    text-align: center;
+    color:blue;
+    font-family: "Nunito Sans",sans-serif;
+}
+ .title {
+    font-size: 48px!important;
+    line-height: 1.0714em;
+    letter-spacing: -.005em;
+    font-weight: 700;
+    margin-top: 0;
+    text-transform: capitalize;
+    font-family: "Nunito Sans",sans-serif;
+
+}
+.scroll-bottom{
+    position: fixed;
+    bottom: 60px;
+}
+.chat-bottom{
+    position: fixed;
+    bottom: 70px;
+    right: 1px;
+    z-index: 999;
+
+}
+.chat-form{
+    /* margin-top: 100px; */
+    position: fixed;
+    bottom: 110px;
+    right: 1px;
+    z-index: 999;
+}
+.close-buttom{
+    position: fixed;
+    bottom: 70px;
+    right: 1px;
+    z-index: 2000;
+
+}
+/* .menu{
+    position: relative;
+    bottom: 54px;
+} */
+
+.dropdown-menu li {
+    position: relative;
+    }
+    .dropdown-menu .dropdown-submenu {
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: -7px;
+    }
+    .dropdown-menu .dropdown-submenu-left {
+    right: 100%;
+    left: auto;
+    }
+    .dropdown-menu > li:hover > .dropdown-submenu {
+    display: block;
+    }
+
+ .send-message{    
+    border-radius: 18px;
+    background-color: deepskyblue;
+    height: 84px;
+    width: 300px;
+    text-align: center;
+} 
+.receve-message{    
+    border-radius: 18px;
+    background-color: rgb(227, 220, 220);
+    height: 84px;
+    width: 300px;
+    text-align: center;
+} 
+.live-chat{
+    margin-right: 54px;
+}
+.message{
+    margin-left: 36px;
+}
+.chat-message-colur{
+    background-color: darkgray;
+}
+.chat-message-input-colur{
+    background-color: rgb(180, 225, 175);
+}

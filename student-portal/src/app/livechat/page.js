@@ -1,198 +1,36 @@
-"use client"
-// import { useEffect, useState } from "react"
-// import { useState } from "react";
-
-// export default function LiveChat() {
-//   return (
-//     <div>
-//       <div className="card chat-form live-chat ">
-//         <h5 className="card-header bg-primary bg-opacity-50">Live chat</h5>
-//         <div className="card-body">
-//             <div className=" send-message message">
-//               <p className="small mb-0">
-//                 Hello and thank you for visiting MDBootstrap. Please click the
-//                 video below.
-//               </p>
-//             </div>
-//             <br></br>
-//             <div className="receve-message ">
-//               <p className="small mb-0">
-//                 Hello and thank you for visiting MDBootstrap. Please click the
-//                 video below.
-//               </p>
-//             </div>
-//             <div className="form-group">
-//               <label htmlFor="exampleFormControlSelect2">Message</label>
-
-//               <textarea
-//                 className="form-control"
-//                 name=""
-//                 id=""
-//                 cols="15"
-//                 rows="5"
-//                 required=""
-//               ></textarea>
-//             </div>
-//             <br></br>
-//             <div className="form-group">
-//               <a href="" className="btn btn-primary">
-//                 Send
-//               </a>
-//             </div>
-//             <a href="#" class="btn btn-primary">Go somewhere</a>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-// import { useEffect, useState } from 'react';
-// import io from 'socket.io-client';
-
-// const socket = io(); 
-
-// export default function Home() {
-//   const [messages, setMessages] = useState([]);
-//   const [input, setInput] = useState('');
-
-//   useEffect(() => {
-//     socket.on('chat message', (msg) => {
-//       setMessages((prevMessages) => [...prevMessages, msg]);
-//     });
-
-//     return () => {
-//       socket.off('chat message');
-//     };
-//   }, []);
-
-//   const sendMessage = () => {
-//     if (input.trim() !== '') {
-//       socket.emit('chat message', input);
-//       setInput('');
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <ul>
-//         {messages.map((msg, index) => (
-//           <li key={index}>{msg}</li>
-//         ))}
-//       </ul>
-//       <input
-//         type="text"
-//         value={input}
-//         onChange={(e) => setInput(e.target.value)}
-//       />
-//       <button onClick={sendMessage}>Send</button>
-//     </div>
-//   );
-// }
-
-
-
-// import { PORT } from "@/config/app"
-// import { Socket, io } from "socket.io-client"
-
-// export default function socketClient() {
-//   const socket = io(`:${3000 + 1}`, { path: "/api/socket", addTrailingSlash: false })
-
-//   socket.on("connect", () => {
-//     console.log("Connected")
-//   })
-
-//   socket.on("disconnect", () => {
-//     console.log("Disconnected")
-//   })
-
-//   socket.on("connect_error", async err => {
-//     console.log(`connect_error due to ${err.message}`)
-//     await fetch("/api/socket")
-//   })
-
-//   return socket
-// }
-
-// import { io } from "socket.io-client"
-// export default function LiveChat(){
-//   const [socket,setSocket]=useState(undefined);
-//   const [inbox,setInbox]=useState([]);
-//   const [message,setMessages]=useState("");
-
-//   const handleSendMessage=()=>{
-//     socket.emit("message",message)
-//   }
-//   useEffect(()=>{
-//     const socket=io("http://localhost:3001")
-
-//     socket.on("message",(message)=>{
-//       setInbox([...inbox,message])
-//       console.log("=============",message);
-//     })
-//     setSocket(socket)
-//   },[])
-//   return(
-//     // <div>
-//     <div className="card chat-form live-chat ">
-//       <h5 className="card-header bg-primary bg-opacity-50">Live chat</h5>
-//       <div className="card-body">
-//           <div className=" send-message message "  onSubmit={(event) => event.preventDefault()}>
-//             {inbox.map((message,inbox)=>(
-//                <div key={inbox} className="border rounded px-4 py-2">{message}</div>
-//               // <p key={index}>{message}</p>
-//             ))}
-//           </div>
-//           <br></br>
-//           {/* <div className="receve-message ">
-//             <p className="small mb-0">
-//               Hello and thank you for visiting MDBootstrap. Please click the
-//               video below.
-//             </p>
-//           </div> */}
-//           <div className="form-group">
-//             <label htmlFor="exampleFormControlSelect2">Message</label>
-
-//             <textarea
-//             onChange={(e)=>{setMessages(e.target.value)}}
-//               className="form-control"
-//               cols="15"
-//               rows="5"
-//               required=""
-//             ></textarea>
-//           </div>
-//           <br></br>
-//           {/* <div className="form-group"> */}
-//             <button onClick={handleSendMessage} className="btn btn-primary">
-//               Send
-//             </button>
-//           {/* </div> */}
-//           {/* <a href="#" class="btn btn-primary">Go somewhere</a> */}
-//       </div>
-//     </div>
-  // </div>
-  
-
-
-import { useState, useEffect } from "react";
+"use client";
+import { useState, useEffect, useRef } from "react";
 import { io } from "socket.io-client";
 
 export default function LiveChat() {
   const [socket, setSocket] = useState(undefined);
   const [inbox, setInbox] = useState([]);
   const [message, setMessage] = useState("");
+  const [isTyping, setIsTyping] = useState(false);
+  const messagesEndRef = useRef(null);
 
   const handleSendMessage = () => {
     socket.emit("message", message);
     setMessage("");
   };
-  
-
+  const scrollUpMessage = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   useEffect(() => {
     const newSocket = io("http://localhost:3001");
 
     newSocket.on("message", (newMessage) => {
       setInbox((prevInbox) => [...prevInbox, newMessage]);
+      scrollUpMessage();
+    });
+
+    newSocket.on("typing", () => {
+      setIsTyping(true);
+    });
+
+    newSocket.on("stopTyping", () => {
+      setIsTyping(false);
     });
 
     setSocket(newSocket);
@@ -202,44 +40,90 @@ export default function LiveChat() {
     };
   }, []);
 
+  useEffect(() => {
+    if (!socket) return;
+
+    socket.on("userTyping", () => {
+      setIsTyping(true);
+    });
+
+    socket.on("userStopTyping", () => {
+      setIsTyping(false);
+    });
+
+    return () => {
+      socket.off("userTyping");
+      socket.off("userStopTyping");
+    };
+  }, [socket]);
+
+  useEffect(() => {
+    scrollUpMessage();
+  }, [inbox]);
+
   return (
-    <div className="card chat-form live-chat">
-      <h5 className="card-header bg-primary bg-opacity-50">Live chat</h5>
+    <div className="card chat-form live-chat rounded">
+      <a className="navbar-brand bg-primary bg-opacity-50 " href="#">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="30"
+          height="50"
+          fill="currentColor"
+          className="bi bi-person-circle"
+          viewBox="0 0 16 16"
+        >
+          <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+          <path
+            fillRule="evenodd"
+            d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+          />
+        </svg>{" "}
+        Live Chat
+        {isTyping && (
+          <span className="ms-auto justify-content-end"> is Typing...</span>
+        )}
+        {!isTyping && (
+          <span className="ms-auto justify-content-end"> is Online</span>
+        )}
+      </a>
       <div className="card-body">
-        <div className="send-message message">
+        <div className=" live-scroll">
           {inbox.map((message, index) => (
-            <div key={index} className="user_m border rounded border-info px-4 py-2">
-              {message}
+            <div key={index} className="container d-flex justify-content-start">
+              <div className="row row-cols-auto">
+                <div className="col p-2  bg-info bg-opacity-75 text-white rounded m-1 show-message">
+                  {message}
+                </div>
+              </div>
             </div>
           ))}
+          <div ref={messagesEndRef} />
         </div>
         <br />
-        <div className="form-group">
-          <label htmlFor="exampleFormControlSelect2">Message</label>
-          <textarea
+        <div className="form-group d-flex justify-content-between align-items-center">
+          <input
+            id="messageInput"
+            className="form-control rounded-pill bg-secondary bg-opacity-10 m-2"
             value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            className="form-control"
-            cols="15"
-            rows="5"
-            required=""
-          ></textarea>
+            onChange={(e) => {
+              setMessage(e.target.value);
+              socket.emit("typing");
+            }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") handleSendMessage();
+            }}
+            onBlur={() => socket.emit("stopTyping")}
+            placeholder="Enter message"
+            required
+          />
+          <button
+            onClick={() => handleSendMessage()}
+            className="btn btn-primary rounded-pill m-1  "
+          >
+            Send
+          </button>
         </div>
-        <br />
-        <button  onClick={() => {
-                  handleSendMessage();
-                }} className="btn btn-primary">
-          Send
-        </button>
       </div>
     </div>
   );
 }
-
-
-
-
-
-
-
-

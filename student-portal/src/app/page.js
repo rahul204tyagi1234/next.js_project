@@ -15,7 +15,7 @@ export default function Home() {
       </h2>
       <div className="container-fluid">
         <div className="row">
-          <div className="col-sm-3 col-md-3 col-lg-3">
+          <div className="col-sm-3 col-md-3 col-lg-3 ">
             <div className="card cd text-center ">
               <img
                 src="https://media.istockphoto.com/id/525409809/photo/teacher-and-students-in-classroom-during-lesson.jpg?s=612x612&w=0&k=20&c=SL2mO_Xl58IKYccvX5s_AGPdXJkEF4L0dMgtRVOjKAU="
@@ -143,7 +143,7 @@ export default function Home() {
           data-bs-ride="carousel"
         >
           <div className="carousel-inner container-fluid">
-            <div className="carousel-item active" data-bs-interval="10000">
+            <div className="carousel-item active" data-bs-interval="3000">
               <img
                 src="https://previews.customer.envatousercontent.com/files/339337128/z/img/simple-ver-9.jpg"
                 className="d-block w-100"

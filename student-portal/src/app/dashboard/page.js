@@ -6,6 +6,7 @@ import Profile from "./profile/page";
 import Payment from "./payment/page";
 import Courses from "./courses/page";
 import Footer from "../footer/page";
+import Chating from "../chating/page";
 // import { useState } from "react";
 
 export default function DashBoard() {
@@ -26,6 +27,8 @@ export default function DashBoard() {
         return <Payment />;
       case "Result":
         return <Result />;
+      // case "Chating":
+      //   return <Chating />;
       default:
         return null;
     }
@@ -141,6 +144,20 @@ export default function DashBoard() {
                     Result
                   </Link>
                 </li>
+                {/* <li
+                  className={`list-group-item ${
+                    selectedOption === "Chating" ? "active" : ""
+                  }`}
+                >
+                  <Link
+                    href="/dashboard"
+                    as="/dashboard"
+                    className="nav-link active"
+                    onClick={() => setSelectedOption("Chating")}
+                  >
+                    Chating List
+                  </Link>
+                </li> */}
               </ul>
             </div>
           </div>

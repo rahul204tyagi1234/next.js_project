@@ -1,10 +1,6 @@
 import { UserChat } from "@/app/lib/model/connect";
 import mongoose from "mongoose";
 import { NextResponse } from "next/server";
-
-
-
-
 export async function GET(){
     let data=[];
     let success=true;

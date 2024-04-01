@@ -28,7 +28,7 @@ export default function result() {
             <button
               type="button"
               className="btn btn-primary btn-lg m-2"
-              onclick="print()"
+              // onClick="print()"
             >
               Print-Result
             </button>

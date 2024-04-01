@@ -6,7 +6,7 @@ import Footer from "../footer/page";
 
 let getAllUserData =[];
 const getUser= async ()=>{
-  let data = await fetch("http://localhost:3000/api/users");
+  let data = await fetch(" http://localhost:3000/api/users");
   data = await data.json();
   console.log("===============");
   let user= data.result;
